@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <p></p>
+    <div class="div">
+      <button id="me">Generate color</button>
+    </div>
+    <script>
+      const read = () => {
+        let colorcode = "#";
+        const char = "0123456789abcdef";
+
+        for (let index = 0; index < 6; index++) {
+          const randnum = Math.floor(Math.random() * 16);
+
+          let randchar = char[randnum];
+          colorcode += randchar;
+        }
+        document.body.style.backgroundColor = colorcode;
+        const para = document.querySelector("p");
+        para.innerHTML = colorcode;
+      };
+
+      const button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        read();
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        read();
+      });
+    </script>
+  </body>
+</html>
